@@ -30,7 +30,6 @@ namespace database
 
         public static string access_level = "123";
 
-
         public MainWindow()
         {
             InitializeComponent(); 

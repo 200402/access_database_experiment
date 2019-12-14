@@ -21,6 +21,15 @@ namespace database
     public partial class directory : Page
     {
         public MainWindow mainWindow;
+        private void KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyboardDevice.Modifiers == ModifierKeys.Control && e.Key == Key.F)
+            {
+                Search Search = new Search();
+                Search.Show();
+            }
+
+        }
         public directory(MainWindow _mainWindow)
         {
             InitializeComponent();
@@ -82,5 +91,6 @@ namespace database
             Button5.FontWeight = FontWeights.Normal;
             Button5.FontStyle = FontStyles.Normal;
         }
+
     }
 } 
