@@ -55,7 +55,7 @@ namespace database
             else if (pages == pages.directory)
             {
                 frame.Navigate(new frame_clear(this));
-                //frame.Navigate(new directory(this));
+                content.Navigate(new directory(this));
             }
             //else if ()
             {
@@ -69,14 +69,14 @@ namespace database
             string query = "SELECT Access.Access_level FROM Access WHERE(((Access.Login) ='" + login + "') AND((Access.Password) ='" + password + "'));";
             
             OleDbCommand command = new OleDbCommand(query, myConnection); 
-            try
+            //try
             { 
                 access_level = command.ExecuteScalar().ToString();
                 OpenPage(pages.directory);
             }
-            catch
+            //catch
             {
-                MessageBox.Show("Пользователь не найден");
+              //  MessageBox.Show("Пользователь не найден");
             }
 
 
@@ -88,6 +88,16 @@ namespace database
                 Console.WriteLine(string.Format("Id: {0}", DataReader));
             }*/
         }
+
+
+        public OleDbDataReader filling(string table)
+        {
+            string query = "SELECT * FROM ["+ table + "];";
+            OleDbCommand command = new OleDbCommand(query, myConnection); 
+            return command.ExecuteReader();
+        }
+
+
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {

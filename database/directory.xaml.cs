@@ -20,9 +20,67 @@ namespace database
     /// </summary>
     public partial class directory : Page
     {
-        public directory()
+        public MainWindow mainWindow;
+        public directory(MainWindow _mainWindow)
         {
             InitializeComponent();
+            mainWindow = _mainWindow;
+            dtGrid.Items.Clear();
+            dtGrid.ItemsSource = mainWindow.filling("Справочник");
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            StyleText(); 
+            Button1.FontWeight = FontWeights.Bold;
+            Button1.FontStyle = FontStyles.Italic;
+            dtGrid.ItemsSource = mainWindow.filling("Справочник");
+        }
+
+        private void Button2_Click(object sender, RoutedEventArgs e)
+        {
+            StyleText();
+            Button2.FontWeight = FontWeights.Bold;
+            Button2.FontStyle = FontStyles.Italic;
+            dtGrid.ItemsSource = mainWindow.filling("В библиотеке");
+        }
+
+        private void Button3_Click(object sender, RoutedEventArgs e)
+        {
+            StyleText();
+            Button3.FontWeight = FontWeights.Bold;
+            Button3.FontStyle = FontStyles.Italic;
+            dtGrid.ItemsSource = mainWindow.filling("В читальном зале");
+        }
+
+        private void Button4_Click(object sender, RoutedEventArgs e)
+        {
+            StyleText();
+            Button4.FontWeight = FontWeights.Bold;
+            Button4.FontStyle = FontStyles.Italic;
+            dtGrid.ItemsSource = mainWindow.filling("На руках");
+        }
+
+        private void Button5_Click(object sender, RoutedEventArgs e)
+        {
+            StyleText();
+            Button5.FontWeight = FontWeights.Bold;
+            Button5.FontStyle = FontStyles.Italic;
+            dtGrid.ItemsSource = mainWindow.filling("На списание");
+        }
+
+        private void StyleText()
+        {
+            Button1.FontWeight = FontWeights.Normal;
+            Button1.FontStyle = FontStyles.Normal;
+            Button2.FontWeight = FontWeights.Normal;
+            Button2.FontStyle = FontStyles.Normal;
+            Button3.FontWeight = FontWeights.Normal;
+            Button3.FontStyle = FontStyles.Normal;
+            Button4.FontWeight = FontWeights.Normal;
+            Button4.FontStyle = FontStyles.Normal;
+            Button5.FontWeight = FontWeights.Normal;
+            Button5.FontStyle = FontStyles.Normal;
         }
     }
-}
+} 
