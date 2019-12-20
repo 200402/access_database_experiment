@@ -23,6 +23,7 @@ namespace database
     {
         static public int user;
         public MainWindow mainWindow;
+        public static string log;
         public login(MainWindow _mainWindow)
         {
             InitializeComponent();
@@ -45,6 +46,7 @@ namespace database
 
             if (textBox_login.Text.Length > 0) // проверяем введён ли логин   
             {
+                log = textBox_login.Text;
                 if (password.Password.Length > 0) // проверяем введён ли пароль         
                 {             // ищем в базе данных пользователя с такими данными     
                     mainWindow.register(textBox_login.Text, password.Password);

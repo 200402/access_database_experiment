@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Threading.Tasks;
+using System.IO;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text; 
-using System.Threading.Tasks;
+using System.Web.UI.MobileControls;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace database
 {
@@ -26,23 +29,36 @@ namespace database
         public static string connectString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Ahmadeev.mdb;";
         //public static string connectString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Workers.mdb;";
 
+        private string access_level = "123";
         private OleDbConnection myConnection;
+        public static string table_name;
 
-        public static string access_level = "123";
-
+        public List<List<string>> table = new List<List<string>>(); 
+        public int nomber; 
+        public static int Collums;
+        
+        
         public MainWindow()
         {
-            InitializeComponent(); 
+            InitializeComponent();
             myConnection = new OleDbConnection(connectString);
             myConnection.Open();
             OpenPage(pages.login);
+            bdForList();
         } 
          
         public enum pages
         {
             login,
             directory,
+            menu,
         } 
+
+        public string Access_lvl()
+        {
+            return access_level;
+        }
+
         public void OpenPage(pages pages)
         {
             if (pages == pages.login)
@@ -55,6 +71,7 @@ namespace database
             {
                 frame.Navigate(new frame_clear(this));
                 content.Navigate(new directory(this));
+                menu.Navigate(new menu(this));
             }
             //else if ()
             {
@@ -68,14 +85,15 @@ namespace database
             string query = "SELECT Access.Access_level FROM Access WHERE(((Access.Login) ='" + login + "') AND((Access.Password) ='" + password + "'));";
             
             OleDbCommand command = new OleDbCommand(query, myConnection); 
-            //try
-            { 
+            
+            if (command.ExecuteScalar() != null)
+            {
                 access_level = command.ExecuteScalar().ToString();
                 OpenPage(pages.directory);
             }
-            //catch
+            else
             {
-              //  MessageBox.Show("Пользователь не найден");
+                MessageBox.Show("Не правильный логин или пароль");
             }
 
 
@@ -88,19 +106,54 @@ namespace database
             }*/
         }
 
-
-        public OleDbDataReader filling(string table)
+        public void bdForList() //определенной таблицы
         {
-            string query = "SELECT * FROM ["+ table + "];";
-            OleDbCommand command = new OleDbCommand(query, myConnection); 
-            return command.ExecuteReader();
-        }
+            string query = "SELECT * FROM [Справочник];";
+            OleDbCommand command = new OleDbCommand(query, myConnection);
 
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                List<string> table2 = new List<string>();
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    table2.Add(reader[i].ToString());
+                }
+                table.Add(table2);
+            }
 
+            for (int i = 0; i < table.Count; i++)
+            {
+                try
+                {
+                    table[i][4] = table[i][4].Remove(table[i][4].Length - 8);
+                }
+                catch
+                {
+
+                }
+                try
+                {
+                    table[i][5] = table[i][5].Remove(table[i][5].Length - 8);
+                }
+                catch
+                {
+
+                }
+            }
+        } 
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             myConnection.Close();
         }
+
+        public OleDbDataReader filling() //определенной таблицы
+        {
+            string query = "SELECT * FROM [" + table_name + "];";
+            OleDbCommand command = new OleDbCommand(query, myConnection);
+            return command.ExecuteReader();
+        }
+
     }
 }

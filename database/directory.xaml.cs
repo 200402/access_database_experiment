@@ -15,35 +15,38 @@ using System.Windows.Shapes;
 
 namespace database
 {
-    /// <summary>
-    /// Логика взаимодействия для directory.xaml
-    /// </summary>
     public partial class directory : Page
     {
         public MainWindow mainWindow;
-        private void KeyDown(object sender, KeyEventArgs e)
+        /*private void KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyboardDevice.Modifiers == ModifierKeys.Control && e.Key == Key.F)
-            {
-                Search Search = new Search();
-                Search.Show();
+            { 
+               // mainWindow.Column = dtGrid.CurrentColumn.DisplayIndex;
+               // mainWindow.IsHitTestVisible = false;
             }
+        }*/
 
-        }
+        private List<List<string>> local_table = new List<List<string>>();
+
         public directory(MainWindow _mainWindow)
         {
-            InitializeComponent();
             mainWindow = _mainWindow;
-            dtGrid.Items.Clear();
-            dtGrid.ItemsSource = mainWindow.filling("Справочник");
+            MainWindow.table_name = "Справочник";
+            InitializeComponent();
+            mainWindow.nomber = 0;
+            local_table = filling_table(local_table, mainWindow.table);
+            filling();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            StyleText(); 
+            StyleText();
             Button1.FontWeight = FontWeights.Bold;
             Button1.FontStyle = FontStyles.Italic;
-            dtGrid.ItemsSource = mainWindow.filling("Справочник");
+            MainWindow.table_name = "Справочник";
+            local_table = filling_table(local_table, mainWindow.table);
+            filling();
         }
 
         private void Button2_Click(object sender, RoutedEventArgs e)
@@ -51,7 +54,9 @@ namespace database
             StyleText();
             Button2.FontWeight = FontWeights.Bold;
             Button2.FontStyle = FontStyles.Italic;
-            dtGrid.ItemsSource = mainWindow.filling("В библиотеке");
+            MainWindow.table_name = "В библиотеке";
+            local_table = filling_table(local_table, mainWindow.table);
+            filling();
         }
 
         private void Button3_Click(object sender, RoutedEventArgs e)
@@ -59,7 +64,9 @@ namespace database
             StyleText();
             Button3.FontWeight = FontWeights.Bold;
             Button3.FontStyle = FontStyles.Italic;
-            dtGrid.ItemsSource = mainWindow.filling("В читальном зале");
+            MainWindow.table_name = "В читальном зале";
+            local_table = filling_table(local_table, mainWindow.table);
+            filling();
         }
 
         private void Button4_Click(object sender, RoutedEventArgs e)
@@ -67,7 +74,9 @@ namespace database
             StyleText();
             Button4.FontWeight = FontWeights.Bold;
             Button4.FontStyle = FontStyles.Italic;
-            dtGrid.ItemsSource = mainWindow.filling("На руках");
+            MainWindow.table_name = "На руках";
+            local_table = filling_table(local_table, mainWindow.table);
+            filling();
         }
 
         private void Button5_Click(object sender, RoutedEventArgs e)
@@ -75,9 +84,10 @@ namespace database
             StyleText();
             Button5.FontWeight = FontWeights.Bold;
             Button5.FontStyle = FontStyles.Italic;
-            dtGrid.ItemsSource = mainWindow.filling("На списание");
+            MainWindow.table_name = "На списание";
+            local_table = filling_table(local_table, mainWindow.table);
+            filling();
         }
-
         private void StyleText()
         {
             Button1.FontWeight = FontWeights.Normal;
@@ -92,5 +102,200 @@ namespace database
             Button5.FontStyle = FontStyles.Normal;
         }
 
+        private void Left_Click(object sender, RoutedEventArgs e)
+        {
+            if (mainWindow.nomber > 0)
+            {
+                mainWindow.nomber--;
+                filling();
+            }
+        }
+        private void Right_Click(object sender, RoutedEventArgs e)
+        {
+            if (mainWindow.nomber + 1 != local_table.Count)
+            {
+                mainWindow.nomber++;
+                filling();
+            }
+        }
+        private void Find_part_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (ComboBox.SelectedIndex != -1 && TextBox.Text.Length > 0)
+            {
+                local_table = filling_part_table(local_table, mainWindow.table, ComboBox.SelectedIndex, TextBox.Text);
+                filling();
+            }
+        }
+        private List<List<string>> filling_part_table(List<List<string>> table_in, List<List<string>> table_of, int CB, string str)
+        {
+            local_table.Clear();
+            mainWindow.nomber = 0;
+            if (MainWindow.table_name == "Справочник")
+            {
+                for (int i = 0; i < table_of.Count; i++)
+                {
+                    if (table_of[i][CB].Contains(str))
+                    {
+                        table_in.Add(table_of[i]);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < table_of.Count; i++)
+                {
+                    if (table_of[i][3] == MainWindow.table_name)
+                    {
+                        if (table_of[i][CB].Contains(str))
+                        {
+                            table_in.Add(table_of[i]);
+                        }
+                    }
+                }
+            }
+            return table_in;
+        }
+
+
+        private void Find_Click(object sender, RoutedEventArgs e)
+        {
+            if (ComboBox.SelectedIndex != -1 && TextBox.Text.Length > 0)
+            {
+                local_table = filling_table(local_table, mainWindow.table, ComboBox.SelectedIndex, TextBox.Text);
+                filling();
+            }
+        }
+        private List<List<string>> filling_table(List<List<string>> table_in, List<List<string>> table_of, int CB, string str)
+        {
+            local_table.Clear();
+            mainWindow.nomber = 0;
+            if (MainWindow.table_name == "Справочник")
+            {
+                for (int i = 0; i < table_of.Count; i++)
+                {
+                    if (table_of[i][CB] == str)
+                    {
+                        table_in.Add(table_of[i]);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < table_of.Count; i++)
+                {
+                    if (table_of[i][3] == MainWindow.table_name)
+                    {
+                        if (table_of[i][CB] == str)
+                        {
+                            table_in.Add(table_of[i]);
+                        }
+                    }
+                }
+            }
+            return table_in;
+        }
+
+        private List<List<string>> filling_table(List<List<string>> table_in, List<List<string>> table_of)
+        {
+            local_table.Clear();
+            mainWindow.nomber = 0;
+            if (MainWindow.table_name == "Справочник")
+            {
+                for (int i = 0; i < table_of.Count; i++)
+                {
+                    table_in.Add(table_of[i]);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < table_of.Count; i++)
+                {
+                    if (table_of[i][3] == MainWindow.table_name)
+                    {
+                        table_in.Add(mainWindow.table[i]);
+                    }
+                }
+            }
+            return table_in;
+        }
+
+        private void filling()
+        {
+            Quantity.Text = (mainWindow.nomber + 1) + " из " + local_table.Count;
+            ID.Text = "";
+            Name.Text = "";
+            Genre.Text = "";
+            Moving.Text = "";
+            Data_move.Text = "";
+            Data.Text = "";
+            Write_off.Text = "";
+            ComboBox.Items.Clear();
+            if (MainWindow.table_name == "Справочник")
+            {
+                ID.Text = local_table[mainWindow.nomber][0];
+                Name.Text = local_table[mainWindow.nomber][1];
+                Genre.Text = local_table[mainWindow.nomber][2];
+                Moving.Text = local_table[mainWindow.nomber][3];
+                Data_move.Text = local_table[mainWindow.nomber][4];
+                //Data_move.Text = Data_move.Text.Remove(Data_move.Text.Length - 8);
+                Data.Text = local_table[mainWindow.nomber][5];
+                //Data.Text = Data.Text.Remove(Data.Text.Length - 8);
+                if (local_table[mainWindow.nomber][3] == "На списание")
+                {
+                    Write_off_text.Visibility = Visibility.Visible;
+                    Write_off.Visibility = Visibility.Visible;
+                    Write_off.Text = local_table[mainWindow.nomber][6];
+                }
+                else
+                {
+                    Write_off_text.Visibility = Visibility.Hidden;
+                    Write_off.Visibility = Visibility.Hidden;
+                }
+                ComboBox.Items.Add("Код");
+                ComboBox.Items.Add("Название");
+                ComboBox.Items.Add("Жанр");
+                ComboBox.Items.Add("Перемещение");
+                ComboBox.Items.Add("Дата перемещения");
+                ComboBox.Items.Add("Дата поступления");
+                ComboBox.Items.Add("Причина списания");
+            }
+            else if (Moving.Text == "На списание")
+            {
+                ID.Text = local_table[mainWindow.nomber][0];
+                Name.Text = local_table[mainWindow.nomber][1];
+                Genre.Text = local_table[mainWindow.nomber][2];
+                Moving.Text = local_table[mainWindow.nomber][3];
+                Data_move.Text = local_table[mainWindow.nomber][4];
+                Data.Text = local_table[mainWindow.nomber][5];
+                Write_off_text.Visibility = Visibility.Visible;
+                Write_off.Visibility = Visibility.Visible;
+                Write_off.Text = local_table[mainWindow.nomber][6];
+                ComboBox.Items.Add("Код");
+                ComboBox.Items.Add("Название");
+                ComboBox.Items.Add("Жанр");
+                ComboBox.Items.Add("Перемещение");
+                ComboBox.Items.Add("Дата перемещения");
+                ComboBox.Items.Add("Дата поступления");
+                ComboBox.Items.Add("Причина списания");
+            }
+            else
+            {
+                ID.Text = local_table[mainWindow.nomber][0];
+                Name.Text = local_table[mainWindow.nomber][1];
+                Genre.Text = local_table[mainWindow.nomber][2];
+                Moving.Text = local_table[mainWindow.nomber][3];
+                Data_move.Text = local_table[mainWindow.nomber][4];
+                Data.Text = local_table[mainWindow.nomber][5];
+                Write_off_text.Visibility = Visibility.Hidden;
+                Write_off.Visibility = Visibility.Hidden;
+                ComboBox.Items.Add("Код");
+                ComboBox.Items.Add("Название");
+                ComboBox.Items.Add("Жанр");
+                ComboBox.Items.Add("Перемещение");
+                ComboBox.Items.Add("Дата перемещения");
+                ComboBox.Items.Add("Дата поступления");
+            }
+        }
     }
 } 

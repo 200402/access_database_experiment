@@ -8,13 +8,11 @@
       Title="login" >
 
     <Grid Name="grid" Width="1280" Height="720" Background="Black">
-        <MediaElement x:Name="myGif" Width="1280" Height="720" MediaEnded="myGif_MediaEnded" UnloadedBehavior="Manual" Source="file://D:\visual studio\Hakaton1019\Hakaton1019\image\anim.gif" LoadedBehavior="Play" Stretch="None"/>
+        <MediaElement x:Name="myGif" Width="1280" Height="720" MediaEnded="myGif_MediaEnded" UnloadedBehavior="Manual" Source="D:\visual studio\database\database\Image\anim.gif" LoadedBehavior="Play" Stretch="None"/>
         <Label Content="Введите логин:" HorizontalAlignment="Center" Margin="527,259,587,423" VerticalAlignment="Center" Height="38" Width="166" Foreground="White" FontSize="20"/>
         <Label Content="Введите пароль:" HorizontalAlignment="Center" Margin="526,337,588,345" VerticalAlignment="Center" Height="38" Width="166" Foreground="White" FontSize="20"/>
         <TextBox Text="1"  x:Name="textBox_login" HorizontalAlignment="Center" Height="35" Margin="527,297,521,388" TextWrapping="Wrap" VerticalAlignment="Center" Width="232" FontSize="21"/>
         <PasswordBox  x:Name="password" HorizontalAlignment="Center" Margin="527,375,521,310" VerticalAlignment="Center" Width="232" Height="35" FontSize="20"/>
         <Button x:Name="enter" Content="Войти" Click="enter_Click" HorizontalAlignment="Center" Margin="527,419,519,272" VerticalAlignment="Center" Width="234" Height="29" RenderTransformOrigin="0.5,-0.103"/>
-
-
     </Grid>
 </Page>
