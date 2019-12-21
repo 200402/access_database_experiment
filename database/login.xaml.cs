@@ -51,7 +51,7 @@ namespace database
                 {             // ищем в базе данных пользователя с такими данными     
                     mainWindow.register(textBox_login.Text, password.Password);
                 }
-                else MessageBox.Show("Введите пароль"); // выводим ошибку    
+                else MessageBox.Show("Введите пароль"); // выводим ошибку
             }
             else MessageBox.Show("Введите логин"); // выводим ошибку 
         }

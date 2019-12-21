@@ -60,6 +60,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="directory_admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="frame_clear.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -79,6 +83,9 @@
     <Compile Include="directory.xaml.cs">
       <DependentUpon>directory.xaml</DependentUpon>
     </Compile>
+    <Compile Include="directory_admin.xaml.cs">
+      <DependentUpon>directory_admin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="frame_clear.xaml.cs">
       <DependentUpon>frame_clear.xaml</DependentUpon>
     </Compile>
@@ -93,10 +100,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="new_user.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="menu.xaml.cs">
       <DependentUpon>menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="new_user.xaml.cs">
+      <DependentUpon>new_user.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -125,9 +139,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Ahmadeev.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Resource Include="Image\Снимок.png" />
     <Resource Include="Image\left.png" />
     <Resource Include="Image\right.png" />

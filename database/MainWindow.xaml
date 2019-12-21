@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:database"
         mc:Ignorable="d"
-        Title="MainWindow" ResizeMode="NoResize" Width="1280" Height="720" Closing="Window_Closing">
+        Title="MainWindow" ResizeMode="NoResize" Width="1280" Height="720" Closing="Window_Closing" KeyDown="Window_KeyDown">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FF3C3CF5" Offset="0.004"/>

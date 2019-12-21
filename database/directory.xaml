@@ -17,12 +17,12 @@
         <Button Name="Button4" Content="На руках" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Height="62" Margin="614,0,0,0" FontSize="22" Click="Button4_Click"/>
         <Button Name="Button5" Content="На списание" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Height="62" Margin="819,0,0,0" FontSize="22" Click="Button5_Click"/>
 
-        <Button Name="Left" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="179,422,0,0" VerticalAlignment="Top" Width="50" Height="50" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000" Click="Left_Click">
+        <Button Name="Left" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="179,430,0,0" VerticalAlignment="Top" Width="50" Height="50" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000" Click="Left_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="image\left.png" Margin="0,0,0,0" />
             </StackPanel>
         </Button>
-        <Button Name="Right" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="234,422,0,0" VerticalAlignment="Top" Width="50" Height="50" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000" Click="Right_Click">
+        <Button Name="Right" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="234,430,0,0" VerticalAlignment="Top" Width="50" Height="50" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000" Click="Right_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="image\right.png" Margin="0,0,0,0"/>
             </StackPanel>

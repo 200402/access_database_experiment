@@ -222,6 +222,7 @@ namespace database
 
         private void filling()
         {
+
             Quantity.Text = (mainWindow.nomber + 1) + " из " + local_table.Count;
             ID.Text = "";
             Name.Text = "";
@@ -231,16 +232,23 @@ namespace database
             Data.Text = "";
             Write_off.Text = "";
             ComboBox.Items.Clear();
+
+            ID.Text = local_table[mainWindow.nomber][0];
+            Name.Text = local_table[mainWindow.nomber][1];
+            Genre.Text = local_table[mainWindow.nomber][2];
+            Moving.Text = local_table[mainWindow.nomber][3];
+            Data_move.Text = local_table[mainWindow.nomber][4];
+            Data.Text = local_table[mainWindow.nomber][5];
+
+            ComboBox.Items.Add("Код");
+            ComboBox.Items.Add("Название");
+            ComboBox.Items.Add("Жанр");
+            ComboBox.Items.Add("Перемещение");
+            ComboBox.Items.Add("Дата перемещения");
+            ComboBox.Items.Add("Дата поступления");
+
             if (MainWindow.table_name == "Справочник")
             {
-                ID.Text = local_table[mainWindow.nomber][0];
-                Name.Text = local_table[mainWindow.nomber][1];
-                Genre.Text = local_table[mainWindow.nomber][2];
-                Moving.Text = local_table[mainWindow.nomber][3];
-                Data_move.Text = local_table[mainWindow.nomber][4];
-                //Data_move.Text = Data_move.Text.Remove(Data_move.Text.Length - 8);
-                Data.Text = local_table[mainWindow.nomber][5];
-                //Data.Text = Data.Text.Remove(Data.Text.Length - 8);
                 if (local_table[mainWindow.nomber][3] == "На списание")
                 {
                     Write_off_text.Visibility = Visibility.Visible;
@@ -252,49 +260,19 @@ namespace database
                     Write_off_text.Visibility = Visibility.Hidden;
                     Write_off.Visibility = Visibility.Hidden;
                 }
-                ComboBox.Items.Add("Код");
-                ComboBox.Items.Add("Название");
-                ComboBox.Items.Add("Жанр");
-                ComboBox.Items.Add("Перемещение");
-                ComboBox.Items.Add("Дата перемещения");
-                ComboBox.Items.Add("Дата поступления");
                 ComboBox.Items.Add("Причина списания");
             }
             else if (Moving.Text == "На списание")
             {
-                ID.Text = local_table[mainWindow.nomber][0];
-                Name.Text = local_table[mainWindow.nomber][1];
-                Genre.Text = local_table[mainWindow.nomber][2];
-                Moving.Text = local_table[mainWindow.nomber][3];
-                Data_move.Text = local_table[mainWindow.nomber][4];
-                Data.Text = local_table[mainWindow.nomber][5];
                 Write_off_text.Visibility = Visibility.Visible;
                 Write_off.Visibility = Visibility.Visible;
                 Write_off.Text = local_table[mainWindow.nomber][6];
-                ComboBox.Items.Add("Код");
-                ComboBox.Items.Add("Название");
-                ComboBox.Items.Add("Жанр");
-                ComboBox.Items.Add("Перемещение");
-                ComboBox.Items.Add("Дата перемещения");
-                ComboBox.Items.Add("Дата поступления");
                 ComboBox.Items.Add("Причина списания");
             }
             else
             {
-                ID.Text = local_table[mainWindow.nomber][0];
-                Name.Text = local_table[mainWindow.nomber][1];
-                Genre.Text = local_table[mainWindow.nomber][2];
-                Moving.Text = local_table[mainWindow.nomber][3];
-                Data_move.Text = local_table[mainWindow.nomber][4];
-                Data.Text = local_table[mainWindow.nomber][5];
                 Write_off_text.Visibility = Visibility.Hidden;
                 Write_off.Visibility = Visibility.Hidden;
-                ComboBox.Items.Add("Код");
-                ComboBox.Items.Add("Название");
-                ComboBox.Items.Add("Жанр");
-                ComboBox.Items.Add("Перемещение");
-                ComboBox.Items.Add("Дата перемещения");
-                ComboBox.Items.Add("Дата поступления");
             }
         }
     }

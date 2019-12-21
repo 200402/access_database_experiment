@@ -1,0 +1,21 @@
+﻿<Page x:Class="database.new_user"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:database"
+      mc:Ignorable="d" 
+      d:DesignHeight="641" d:DesignWidth="1024"
+      Title="new_user" Height="641" Width="1024">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Логин:" VerticalAlignment="Top" Margin="100,100,0,0" FontSize="50"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Пароль:" VerticalAlignment="Top" Margin="100,200,0,0" FontSize="50"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Уровень доступа:" VerticalAlignment="Top" Margin="100,300,0,0" FontSize="50"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Login" VerticalAlignment="Top" Margin="304,100,0,0" FontSize="50" Foreground="#FF6C00" Width="655" Height="67" />
+        <PasswordBox HorizontalAlignment="Left" x:Name="password" VerticalAlignment="Top" Margin="304,200,0,0" FontSize="50" Foreground="#FF6C00" Width="655" Height="67" />
+        <ComboBox HorizontalAlignment="Left" Text="" Name="level" VerticalAlignment="Top" Margin="502,300,0,0" FontSize="50" Foreground="#FF6C00" Width="457" />
+        <Button Content="Добавить пользователя" HorizontalAlignment="Left" VerticalAlignment="Top" Width="859" Margin="100,410,0,0" FontSize="50" Click="Button_Click"/>
+
+    </Grid>
+</Page>
