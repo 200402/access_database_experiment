@@ -323,7 +323,10 @@ namespace database
             {
                 Write_off_text.Visibility = Visibility.Visible;
                 Write_off.Visibility = Visibility.Visible;
-                Write_off.Text = "Ветхость";
+                if (Write_off.Text.Length <=1)
+                {
+                    Write_off.Text = "Ветхость";
+                }
             }
             else
             {
@@ -332,11 +335,40 @@ namespace database
                 Write_off.Text = " ";
             }
 
+            if (ComboBox.Text == "Жанр")
+            {
+                Combo.Visibility = Visibility.Visible;
+                for (int i = 0; i < mainWindow.table.Count; i++)
+                {
+                    int check = 0;
+                    for (int j = 0; j < i;j++)
+                    {
+                        if (mainWindow.table[i][2] == mainWindow.table[j][2])
+                        {
+                            check = 1;
+                        }
+                    }
+                    if (check == 0)
+                    {
+                        Combo.Items.Add(mainWindow.table[i][2]);
+                    }
+                }
+            }
+            else
+            {
+                Combo.Visibility = Visibility.Hidden;
+            }
+
         }
 
         private void Moving_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Data_move.Text = DateTime.Today.ToString().Remove(DateTime.Today.ToString().Length - 8);
+            Data_move.Text = DateTime.Now.ToString();
+        }
+
+        private void Page_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

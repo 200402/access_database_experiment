@@ -55,6 +55,10 @@ namespace database
             directory_admin,
             new_user,
             menu,
+            Request,
+            change,
+            append,
+            Otchet,
         } 
 
         public string Access_lvl()
@@ -72,11 +76,23 @@ namespace database
                     menu.Navigate(new frame_clear(this));
                     content.Navigate(new frame_clear(this));
                     frame.Navigate(new login(this));
-                }
+                } 
                 else if (pages == pages.directory)
                 {
                     frame.Navigate(new frame_clear(this));
                     content.Navigate(new directory(this));
+                    menu.Navigate(new menu(this));
+                }
+                else if (pages == pages.Request)
+                {
+                    frame.Navigate(new frame_clear(this));
+                    content.Navigate(new Request(this));
+                    menu.Navigate(new menu(this));
+                }
+                else if (pages == pages.Otchet)
+                {
+                    frame.Navigate(new frame_clear(this));
+                    content.Navigate(new Otchet(this));
                     menu.Navigate(new menu(this));
                 }
             }
@@ -89,6 +105,12 @@ namespace database
                     content.Navigate(new frame_clear(this));
                     frame.Navigate(new login(this));
                 }
+                else if (pages == pages.Request)
+                {
+                    frame.Navigate(new frame_clear(this));
+                    content.Navigate(new Request(this));
+                    menu.Navigate(new menu(this));
+                }
                 else if (pages == pages.directory)
                 {
                     frame.Navigate(new frame_clear(this));
@@ -99,6 +121,24 @@ namespace database
                 {
                     frame.Navigate(new frame_clear(this));
                     content.Navigate(new new_user(this));
+                    menu.Navigate(new menu(this));
+                } 
+                else if (pages == pages.change)
+                {
+                    frame.Navigate(new frame_clear(this));
+                    content.Navigate(new change(this));
+                    menu.Navigate(new menu(this));
+                }
+                else if (pages == pages.append)
+                {
+                    frame.Navigate(new frame_clear(this));
+                    content.Navigate(new append(this));
+                    menu.Navigate(new menu(this));
+                }
+                else if (pages == pages.Otchet)
+                {
+                    frame.Navigate(new frame_clear(this));
+                    content.Navigate(new Otchet(this));
                     menu.Navigate(new menu(this));
                 }
             }
@@ -198,10 +238,18 @@ namespace database
                 {
                     OpenPage(pages.new_user);
                 }
-                if (e.KeyboardDevice.Modifiers == ModifierKeys.Control && e.Key == Key.S)
+                else if (e.KeyboardDevice.Modifiers == ModifierKeys.Control && e.Key == Key.Q)
                 {
                     myConnection.Close();
                     Process.GetCurrentProcess().Kill();
+                }
+                else if (e.KeyboardDevice.Modifiers == ModifierKeys.Control && e.Key == Key.H)
+                {
+                    OpenPage(pages.change);
+                }
+                else if (e.KeyboardDevice.Modifiers == ModifierKeys.Control && e.Key == Key.D)
+                {
+                    OpenPage(pages.append);
                 }
             }
         }
@@ -221,5 +269,29 @@ namespace database
                 MessageBox.Show("Пользователь с таким логином уже существует");
             }
         }
+
+        public void change(string what, string for_what,int qwer)
+        {
+            try
+            {
+                int a = 0;
+                for (int i = 0; i < table.Count;i++)
+                {
+                    if (table[i][qwer].Contains(what))
+                    {
+                        table[i][qwer] = table[i][qwer].Replace(what, for_what);
+                        a++;
+                    }
+                }
+                MessageBox.Show($"Было имененно {a} записей");
+                OpenPage(pages.directory); 
+            }
+            catch
+            {
+                MessageBox.Show("Выберите столбец");
+            }
+        }
+
+        
     }
 }

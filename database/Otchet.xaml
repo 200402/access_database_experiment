@@ -1,0 +1,30 @@
+﻿<Page x:Class="database.Otchet"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:database"
+      mc:Ignorable="d" 
+      d:DesignHeight="641" d:DesignWidth="1024"
+      Title="Otchet">
+
+    <Grid>
+        <Button Name="Right" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="383,436,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000" Click="Right_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="image\right.png" Margin="0,0,0,0"/>
+            </StackPanel>
+        </Button>
+        <Button Name="Left" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="235,436,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000" Click="Left_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="image\left.png" Margin="0,0,0,0"/>
+            </StackPanel>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Название:" VerticalAlignment="Top" Margin="100,100,0,0" FontSize="50"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Дата поступления:" VerticalAlignment="Top" Margin="100,200,0,0" FontSize="50"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Количество:" VerticalAlignment="Top" Margin="100,306,0,0" FontSize="50"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="name" VerticalAlignment="Top" Margin="383,100,0,0" FontSize="50" Foreground="#FF6C00" Width="576" Height="67" />
+        <TextBox HorizontalAlignment="Left" x:Name="date" VerticalAlignment="Top" Margin="578,200,0,0" FontSize="50" Foreground="#FF6C00" Width="381" Height="67" />
+        <TextBox HorizontalAlignment="Left" Text="" Name="kolvo" VerticalAlignment="Top" Margin="383,300,0,0" FontSize="50" Foreground="#FF6C00" Width="576" />
+
+    </Grid>
+</Page>

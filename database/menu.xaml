@@ -15,6 +15,11 @@
                 <Image Source="image\1.jpg" Margin="0,0,0,0" Width="230" Height="80" />
             </StackPanel>
         </Button>
+        <Button Name="Otchet" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" Width="230" Height="80" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000" Click="Otchet_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="image\1.jpg" Margin="0,0,0,0" Width="230" Height="80" />
+            </StackPanel>
+        </Button>
 
         <Button Name="Request" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Width="230" Height="80" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000" Click="Request_Click">
             <StackPanel Orientation="Horizontal">
@@ -30,5 +35,6 @@
 
         <TextBlock x:Name="TextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Label" Width="230" Height="40" Margin="10,1,9.6,629.4" FontFamily="Comic Sans MS" Foreground="#FFFF9700" FontSize="22"/>
 
+        <TextBlock  HorizontalAlignment="Center" TextWrapping="Wrap" Text="Отчет" Width="78" Margin="109,263,62.6,372.4" FontFamily="Comic Sans MS" Foreground="#FFFF9700" FontSize="22"/>
     </Grid>
 </Page>

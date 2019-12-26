@@ -37,7 +37,7 @@ namespace database
 
         private void Request_Click(object sender, RoutedEventArgs e)
         {
-
+            mainWindow.OpenPage(MainWindow.pages.Request);
         }
 
         private void Moving_Click(object sender, RoutedEventArgs e)
@@ -48,6 +48,11 @@ namespace database
         private void Find_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void Otchet_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.OpenPage(MainWindow.pages.Otchet);
         }
     }
 }

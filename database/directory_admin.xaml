@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:database"
       mc:Ignorable="d" 
       d:DesignHeight="641" d:DesignWidth="1024"
-      Title="directory_admin" Height="641" Width="1024">
+      Title="directory_admin" Height="641" Width="1024" PreviewMouseMove="Page_PreviewMouseMove">
 
     <Grid MouseMove="Grid_MouseMove">
 
@@ -57,14 +57,15 @@
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="ID" VerticalAlignment="Top" Margin="318,80,0,0" FontSize="28" Foreground="#FF6C00"/>
         <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Name" VerticalAlignment="Top" Margin="318,130,0,0" FontSize="28" Foreground="#FF6C00" Width="641" />
         <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Genre" VerticalAlignment="Top" Margin="318,180,0,0" FontSize="28" Foreground="#FF6C00" Width="641"/>
-        
+
         <ComboBox HorizontalAlignment="Left" Text="" Name="Moving" VerticalAlignment="Top" Margin="318,230,0,0" FontSize="28" Foreground="#FF6C00" Width="641" SelectionChanged="Moving_SelectionChanged" />
-        
-        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Data_move" VerticalAlignment="Top" Margin="318,280,0,0" FontSize="28" Foreground="#FF6C00" Width="641"/>
+
+        <TextBox  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Data_move" VerticalAlignment="Top" Margin="318,280,0,0" FontSize="28" Foreground="#FF6C00" Width="641"/>
         <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Data" VerticalAlignment="Top" Margin="318,330,0,0" FontSize="28" Foreground="#FF6C00" Width="641"  />
         <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Write_off" VerticalAlignment="Top" Margin="318,380,0,0" FontSize="28" Foreground="#FF6C00" Width="641" />
 
         <TextBlock HorizontalAlignment="Left" Name="Quantity" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="69,502,0,0" FontSize="15" Foreground="Black" Width="62" FontWeight="Bold" FontStyle="Italic"/>
+        <ComboBox Name="Combo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="299" Margin="168,531,0,0" Height="37"/>
 
     </Grid>
 </Page>

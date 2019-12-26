@@ -1,0 +1,21 @@
+﻿<Page x:Class="database.change"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:database"
+      mc:Ignorable="d" 
+      d:DesignHeight="641" d:DesignWidth="1024"
+      Title="change" Height="641" Width="1024">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Что заменяем:" VerticalAlignment="Top" Margin="100,100,0,0" FontSize="50"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="На что заменяем:" VerticalAlignment="Top" Margin="100,200,0,0" FontSize="50"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Столбец:" VerticalAlignment="Top" Margin="100,306,0,0" FontSize="50"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="what" VerticalAlignment="Top" Margin="526,100,0,0" FontSize="50" Foreground="#FF6C00" Width="433" Height="67" />
+        <TextBox HorizontalAlignment="Left" x:Name="for_what" VerticalAlignment="Top" Margin="526,200,0,0" FontSize="50" Foreground="#FF6C00" Width="433" Height="67" />
+        <ComboBox HorizontalAlignment="Left" Text="" Name="ComboBox" VerticalAlignment="Top" Margin="330,300,0,0" FontSize="50" Foreground="#FF6C00" Width="629" />
+        <Button Content="Заменить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="859" Margin="100,410,0,0" FontSize="50" Click="Button_Click"/>
+
+    </Grid>
+</Page>

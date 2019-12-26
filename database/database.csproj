@@ -56,6 +56,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Otchet.xaml.cs">
+      <DependentUpon>Otchet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Request.xaml.cs">
+      <DependentUpon>Request.xaml</DependentUpon>
+    </Compile>
+    <Page Include="append.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="change.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="directory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -80,6 +94,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="append.xaml.cs">
+      <DependentUpon>append.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="change.xaml.cs">
+      <DependentUpon>change.xaml</DependentUpon>
+    </Compile>
     <Compile Include="directory.xaml.cs">
       <DependentUpon>directory.xaml</DependentUpon>
     </Compile>
@@ -101,6 +121,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="new_user.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Otchet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Request.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

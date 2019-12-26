@@ -1,0 +1,16 @@
+﻿<Page x:Class="database.Request"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:database"
+      mc:Ignorable="d" 
+      d:DesignHeight="641" d:DesignWidth="1024"
+      Title="Request" Height="641" Width="1024">
+
+    <Grid>
+        
+        <ListBox x:Name="ListBox" HorizontalAlignment="Left" Height="641" VerticalAlignment="Top" Width="1024" FontSize="18"/>
+
+    </Grid>
+</Page>
