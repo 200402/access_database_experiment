@@ -8,7 +8,7 @@
       d:DesignHeight="641" d:DesignWidth="1024"
       Title="raspisanie" Height="641" Width="1024">
 
-    <Grid>
+    <Grid MouseMove="Grid_MouseMove">
 
         <Image Source="image\Снимок.png" Margin="0,62,10,10"/>
         <Button Name="Button1" Content="Справочник" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Height="62" FontSize="22" FontWeight="Bold" FontStyle="Italic" Click="Button_Click"/>
@@ -36,12 +36,12 @@
 
         <Button Name="Find" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="500,531,0,0" VerticalAlignment="Top" Width="200" Height="80" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000" Click="Find_Click">
             <StackPanel Orientation="Horizontal">
-                <Image Source="image\replace.jpg" Margin="0,0,0,0" />
+                <Image Source="image\Find.png" Margin="0,0,0,0" Width="192" />
             </StackPanel>
         </Button>
-        <Button Name="Find_part" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="742,531,0,0" VerticalAlignment="Top" Width="200" Height="80" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000" Click="Find_part_Click">
+        <Button Name="Find_part" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="742,531,0,0" VerticalAlignment="Top" Width="200" Height="80" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000" Click="cancel_Click">
             <StackPanel Orientation="Horizontal">
-                <Image Source="image\replace.jpg" Margin="0,0,0,0" />
+                <Image Source="image\cancel.png" Margin="0,0,0,0" Width="187" />
             </StackPanel>
         </Button>
 
@@ -54,13 +54,14 @@
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Дата поступления:" VerticalAlignment="Top" Margin="51,330,0,0" FontSize="28" Foreground="#FFCF00"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Причина списания:" Name="Write_off_text" VerticalAlignment="Top" Margin="39,380,0,0" FontSize="28" Foreground="#FFCF00"/>
 
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="ID" VerticalAlignment="Top" Margin="318,80,0,0" FontSize="28" Foreground="#FF6C00"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Name" VerticalAlignment="Top" Margin="318,130,0,0" FontSize="28" Foreground="#FF6C00"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Genre" VerticalAlignment="Top" Margin="318,180,0,0" FontSize="28" Foreground="#FF6C00"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Moving" VerticalAlignment="Top" Margin="318,230,0,0" FontSize="28" Foreground="#FF6C00"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Data_move" VerticalAlignment="Top" Margin="318,280,0,0" FontSize="28" Foreground="#FF6C00"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Data" VerticalAlignment="Top" Margin="318,330,0,0" FontSize="28" Foreground="#FF6C00"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Write_off" VerticalAlignment="Top" Margin="318,380,0,0" FontSize="28" Foreground="#FF6C00"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="ID" VerticalAlignment="Top" Margin="318,80,0,0" FontSize="28" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Name" VerticalAlignment="Top" Margin="318,130,0,0" FontSize="28" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Genre" VerticalAlignment="Top" Margin="318,180,0,0" FontSize="28" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Moving" VerticalAlignment="Top" Margin="318,230,0,0" FontSize="28" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Data_move" VerticalAlignment="Top" Margin="318,280,0,0" FontSize="28" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Text="" TextWrapping="Wrap"  Name="Data" VerticalAlignment="Top" Margin="318,330,0,0" FontSize="28" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Write_off" VerticalAlignment="Top" Margin="318,380,0,0" FontSize="28" Foreground="Black"/>
+        <ComboBox FontSize="22" Name="Combo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="299" Margin="168,531,0,0" Height="37"/>
 
         <TextBlock HorizontalAlignment="Left" Name="Quantity" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="69,502,0,0" FontSize="15" Foreground="Black" Width="62" FontWeight="Bold" FontStyle="Italic"/>
 

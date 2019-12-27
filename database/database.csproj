@@ -176,6 +176,12 @@
     <Resource Include="Image\anim.gif" />
     <Resource Include="Image\replace.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Image\cancel.png" />
+    <Resource Include="Image\Find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\report.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

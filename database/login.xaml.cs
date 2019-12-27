@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace database
 {
@@ -54,6 +55,11 @@ namespace database
                 else MessageBox.Show("Введите пароль"); // выводим ошибку
             }
             else MessageBox.Show("Введите логин"); // выводим ошибку 
+        }
+
+        private void Enter_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("README.txt");
         }
     }
 }

@@ -29,9 +29,9 @@ namespace database
 
             for (int i = 0; i < mainWindow.table.Count; i++)
             {
-                if (mainWindow.table[i][3] == "На руках")
+                if (mainWindow.table[i].Moving == "На руках")
                 {
-                    list.Add(mainWindow.table[i][1]);
+                    list.Add(mainWindow.table[i].Name);
                 }
             }
 
@@ -82,17 +82,17 @@ namespace database
                         while (str == null)
                         {
                             Count = 0;
-                            if (mainWindow.table[q][1] == mas[i, 0])
+                            if (mainWindow.table[q].Name == mas[i, 0])
                             {
                                 for (int qwe = 0; qwe < mainWindow.table.Count; qwe++)
                                 {
-                                    if (mainWindow.table[qwe][1] == mas[i, 0] && mainWindow.table[qwe][3] == "В библиотеке")
+                                    if (mainWindow.table[qwe].Name == mas[i, 0] && mainWindow.table[qwe].Moving == "В библиотеке")
                                     {
                                         Count++;
                                     }
                                 }
-                                str = $"Название: {mainWindow.table[q][1]}";
-                                str += $", жанр {mainWindow.table[q][2]}, ";
+                                str = $"Название: {mainWindow.table[q].Name}";
+                                str += $", жанр {mainWindow.table[q].Genre}, ";
                                 str += $"в библиотеке осталось {Count} таких,";
                                 str += $" а на руках их { mas[i, 1]}";
                             }

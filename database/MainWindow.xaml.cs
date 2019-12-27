@@ -34,7 +34,7 @@ namespace database
         private OleDbConnection myConnection;
         public static string table_name;
 
-        public List<List<string>> table = new List<List<string>>(); 
+        public List<Base> table = new List<Base>(); 
         public int nomber; 
         public static int Collums;
         
@@ -175,19 +175,21 @@ namespace database
         {
             string query = "SELECT * FROM [Справочник];";
             OleDbCommand command = new OleDbCommand(query, myConnection);
-
             OleDbDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                List<string> table2 = new List<string>();
-                for (int i = 0; i < reader.FieldCount; i++)
-                {
-                    table2.Add(reader[i].ToString());
-                }
-                table.Add(table2);
+                    Base table2 = new Base();
+                    table2.ID = Int32.Parse(reader[0].ToString());
+                    table2.Name = reader[1].ToString();
+                    table2.Genre = reader[2].ToString();
+                    table2.Moving = reader[3].ToString();
+                    table2.Data_move = Convert.ToDateTime(reader[4].ToString());
+                    table2.Data = Convert.ToDateTime(reader[5]);
+                    table2.Write_off = reader[6].ToString();
+                    table.Add(table2);
             }
 
-            for (int i = 0; i < table.Count; i++)
+            /*for (int i = 0; i < table.Count; i++)
             {
                 try
                 {
@@ -205,18 +207,17 @@ namespace database
                 {
 
                 }
-            }
+            }*/
         } 
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Window_Closing(object sender, CancelEventArgs e)
         {
             string query = "DELETE * FROM [Справочник];";
             OleDbCommand command = new OleDbCommand(query, myConnection);
             command.ExecuteReader();
-
             for (int i = 0; i < table.Count; i++)
             {
-                query = "INSERT INTO [Справочник] VALUES(" + table[i][0] + ",'" + table[i][1] + "','" + table[i][2] + "','" + table[i][3] + "','" + table[i][4] + "','" + table[i][5] + "','" + table[i][6] + "')";
+                query = "INSERT INTO [Справочник] VALUES(" + table[i].ID + ",'" + table[i].Name + "','" + table[i].Genre + "','" + table[i].Moving + "','" + table[i].Data_move + "','" + table[i].Data + "','" + table[i].Write_off + "')";
                 OleDbCommand command2 = new OleDbCommand(query, myConnection);
                 command2.ExecuteNonQuery();
             }
@@ -270,17 +271,56 @@ namespace database
             }
         }
 
-        public void change(string what, string for_what,int qwer)
+        public void change(string what, string for_what,string qwer)
         {
+
             try
             {
                 int a = 0;
                 for (int i = 0; i < table.Count;i++)
                 {
-                    if (table[i][qwer].Contains(what))
+                    switch (qwer)
                     {
-                        table[i][qwer] = table[i][qwer].Replace(what, for_what);
-                        a++;
+                        case "Название":
+                            if (table[i].Name.Contains(what))
+                            {
+                                table[i].Name = table[i].Name.Replace(what, for_what);
+                                a++;
+                            }
+                            break;
+
+                        case "Жанр":
+                            if (table[i].Genre.Contains(what))
+                            {
+                                table[i].Genre = table[i].Genre.Replace(what, for_what);
+                                a++;
+                            }
+                            break;
+
+                        case "Дата перемещения":
+                            if (table[i].Data_move == Convert.ToDateTime(what))
+                            {
+                                table[i].Data_move = Convert.ToDateTime(what);
+                                a++;
+                            }
+                            break;
+
+                        case "Дата поступления":
+                            if (table[i].Data == Convert.ToDateTime(what))
+                            {
+                                table[i].Data = Convert.ToDateTime(what);
+                                a++;
+                            }
+                            break;
+
+                        case "Причина списания":
+                            if (table[i].Write_off.Contains(what))
+                            {
+                                table[i].Write_off = table[i].Write_off.Replace(what, for_what);
+                                a++;
+                            }
+                            break;
+
                     }
                 }
                 MessageBox.Show($"Было имененно {a} записей");
@@ -293,5 +333,16 @@ namespace database
         }
 
         
+    }
+
+    public class Base
+    {
+        public int ID;
+        public string Name;
+        public string Genre;
+        public string Moving;
+        public DateTime Data_move;
+        public DateTime Data;
+        public string Write_off;
     }
 }

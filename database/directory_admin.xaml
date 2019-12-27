@@ -6,9 +6,9 @@
       xmlns:local="clr-namespace:database"
       mc:Ignorable="d" 
       d:DesignHeight="641" d:DesignWidth="1024"
-      Title="directory_admin" Height="641" Width="1024" PreviewMouseMove="Page_PreviewMouseMove">
+      Title="directory_admin" Height="641" Width="1024">
 
-    <Grid MouseMove="Grid_MouseMove">
+    <Grid MouseMove="Grid_MouseMove" KeyDown="Grid_KeyDown">
 
         <Image Source="image\Снимок.png" Margin="0,62,10,10"/>
         <Button Name="Button1" Content="Справочник" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Height="62" FontSize="22" FontWeight="Bold" FontStyle="Italic" Click="Button_Click"/>
@@ -30,18 +30,19 @@
 
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Искать:" VerticalAlignment="Top" Margin="69,531,0,0" FontSize="28"/>
         <TextBox x:Name="TextBox" HorizontalAlignment="Left" Height="37" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" Margin="167,531,0,0" FontSize="28"/>
-
+        <ComboBox FontSize="25" Name="Combo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="299" Margin="168,531,0,0" Height="37"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="в поле:" VerticalAlignment="Top" Margin="69,573,0,0" FontSize="28"/>
+        
         <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Margin="167,573,0,0" Height="37" FontSize="25" Name="ComboBox"/>
 
         <Button Name="Find" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="500,531,0,0" VerticalAlignment="Top" Width="200" Height="80" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000" Click="Find_Click">
             <StackPanel Orientation="Horizontal">
-                <Image Source="image\replace.jpg" Margin="0,0,0,0" />
+                <Image Source="image\Find.png" Margin="0,0,0,0" Width="192" />
             </StackPanel>
         </Button>
-        <Button Name="Find_part" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="742,531,0,0" VerticalAlignment="Top" Width="200" Height="80" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000" Click="Find_part_Click">
+        <Button Name="Find_part" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="742,531,0,0" VerticalAlignment="Top" Width="200" Height="80" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000" Click="cancel_Click">
             <StackPanel Orientation="Horizontal">
-                <Image Source="image\replace.jpg" Margin="0,0,0,0" />
+                <Image Source="image\cancel.png" Margin="0,0,0,0" Width="187" />
             </StackPanel>
         </Button>
 
@@ -65,7 +66,6 @@
         <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Name="Write_off" VerticalAlignment="Top" Margin="318,380,0,0" FontSize="28" Foreground="#FF6C00" Width="641" />
 
         <TextBlock HorizontalAlignment="Left" Name="Quantity" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="69,502,0,0" FontSize="15" Foreground="Black" Width="62" FontWeight="Bold" FontStyle="Italic"/>
-        <ComboBox Name="Combo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="299" Margin="168,531,0,0" Height="37"/>
 
     </Grid>
 </Page>

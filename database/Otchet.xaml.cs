@@ -37,10 +37,10 @@ namespace database
             ii++;
             qwer.Add(i);
             int schet = 0;
-            string str = mainWindow.table[i][1];
+            string str = mainWindow.table[i].Name;
             name.Text = str;
-            date.Text = mainWindow.table[i][5];
-            for (;mainWindow.table[i][1] == str && i+1 < mainWindow.table.Count; i++)
+            date.Text = mainWindow.table[i].Data.ToString();
+            for (;mainWindow.table[i].Name == str && i+1 < mainWindow.table.Count; i++)
             {
                 schet++;
             }

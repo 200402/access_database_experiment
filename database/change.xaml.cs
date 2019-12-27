@@ -27,7 +27,6 @@ namespace database
             mainWindow = _mainWindow;
             ComboBox.Items.Add("Название");
             ComboBox.Items.Add("Жанр");
-            ComboBox.Items.Add("Перемещение");
             ComboBox.Items.Add("Дата перемещения");
             ComboBox.Items.Add("Дата поступления");
             ComboBox.Items.Add("Причина списания");
@@ -35,7 +34,7 @@ namespace database
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.change(what.Text, for_what.Text, ComboBox.SelectedIndex + 1);
+            mainWindow.change(what.Text, for_what.Text, ComboBox.Text);
         }
     }
 }

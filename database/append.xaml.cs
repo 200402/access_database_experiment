@@ -38,18 +38,21 @@ namespace database
         {
             try
             {
-                int a = int.Parse(mainWindow.table[mainWindow.table.Count - 1][0]);
+                int a = mainWindow.table[mainWindow.table.Count - 1].ID;
                 for (int i = 0; i < int.Parse(quantity.Text); i++)
                 {
                     a++;
-                    List<string> table2 = new List<string>();
-                    table2.Add(a.ToString());
-                    table2.Add(Name.Text);
-                    table2.Add(Genre.Text);
-                    table2.Add(Moving.Text);
-                    table2.Add(Data_move.Text);
-                    table2.Add(Data.Text);
-                    table2.Add(Write_off.Text);
+                    Base table2 = new Base
+                    {
+                        ID = a,
+                        Name = Name.Text,
+                        Genre = Genre.Text,
+                        Moving = Moving.Text,
+                        Data_move = Convert.ToDateTime(Data_move.Text),
+                        Data = Convert.ToDateTime(Data.Text),
+                        Write_off = Write_off.Text
+                    };
+
                     mainWindow.table.Add(table2);
                 }
                 MessageBox.Show("Записи успешно добаленны");
